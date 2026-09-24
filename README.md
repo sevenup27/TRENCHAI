@@ -14,7 +14,7 @@ AI-assisted trading bot for Pump.fun-style Solana markets.
 
 ## Model
 
-The Anthropic API currently documents the API model name `claude-opus-5`. Set `ANTHROPIC_MODEL` in `.env` to the exact model available to your Anthropic account. Do not hard-code a model name that your account does not provide.
+The Anthropic API currently documents the API model name `claude-opus-5-5`. Set `ANTHROPIC_MODEL` in `.env` to the exact model available to your Anthropic account. Do not hard-code a model name that your account does not provide.
 
 ## Quick start
 
@@ -36,7 +36,7 @@ Edit `.env`:
 
 ```env
 ANTHROPIC_API_KEY=your_key_here
-ANTHROPIC_MODEL=claude-opus-5
+ANTHROPIC_MODEL=claude-opus-5-5
 SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
 TRADING_MODE=paper
 ```
@@ -85,3 +85,9 @@ until you have independently audited the transaction-building and signing code.
 ## License
 
 MIT
+
+
+## Claude Opus 5.5
+
+TRENCHAI is configured for Anthropic's Claude Opus 5.5 API model: `claude-opus-5-5`.
+Claude Opus 5.5 uses adaptive thinking, which is always enabled. Thinking depth is controlled with `output_config.effort`; this project uses `medium` by default.
