@@ -1,0 +1,7 @@
+async function get(u,o){return(await fetch(u,o)).json()}const p=document.getElementById("panel");
+function table(h,rows){p.innerHTML=`<table><tr>${h.map(x=>`<th>${x}</th>`).join("")}</tr>${rows.map(r=>`<tr>${r.map(x=>`<td>${x}</td>`).join("")}</tr>`).join("")}</table>`}
+async function show(t){if(t==="radar"){let d=await get("/api/radar");table(["TOKEN","PRICE","LIQUIDITY","24H VOLUME"],d.tokens.map(x=>[x.symbol,`$${x.priceUsd}`,`$${x.liquidityUsd.toLocaleString()}`,`$${x.volume24hUsd.toLocaleString()}`]))}
+if(t==="wallets"){let d=await get("/api/wallets");table(["WALLET","TRADES","BUYS","SELLS","TOKENS"],d.map(x=>[x.wallet,x.trades,x.buys,x.sells,x.tokens.join(", ")]))}
+if(t==="network"){let d=await get("/api/network");p.innerHTML=`<div class="nodes">${d.nodes.map(n=>`<div class="node">${n}</div>`).join("")}</div><p style="color:#666">${d.edges.length} observed wallet → token connections.</p>`}}
+document.getElementById("ai").onclick=async()=>{document.getElementById("out").textContent="Analyzing with Opus 5.5...";document.getElementById("out").textContent=JSON.stringify(await get("/api/analyze",{method:"POST"}),null,2)}
+get("/api/status").then(x=>document.getElementById("status").textContent=`${x.mode.toUpperCase()} · AI ${x.ai}`);show("radar");
