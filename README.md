@@ -1,4 +1,5 @@
 # TRENCHAI
+<img width="1894" height="891" alt="image" src="https://github.com/user-attachments/assets/f8ac22fb-411f-44a9-a373-3792a371c8fa" />
 
 ### AI-Powered On-Chain Intelligence for the Solana Trenches
 
